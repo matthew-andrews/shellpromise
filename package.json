@@ -1,6 +1,9 @@
 {
   "name": "shellpromise",
   "version": "1.0.0",
+  "scripts": {
+    "test": "mocha"
+  },
   "devDependencies": {
     "chai": "^3.2.0",
     "mocha": "^2.2.5"
