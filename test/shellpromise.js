@@ -35,4 +35,11 @@ describe('shellpromise', function() {
 			});
 	});
 
+	it('should pass environment variables through', function() {
+		return shellpromise('./test/fixtures/env.sh', { env: { TEST: 'matt' }})
+			.then(function(output) {
+				expect(output).to.eql('matt\n');
+			});
+	});
+
 });
