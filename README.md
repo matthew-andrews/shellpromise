@@ -35,4 +35,4 @@ shellpromise("echo 'hello world'", { verbose: true });
 
 ## Credits and collaboration
 
-The lead developer of denodeify is Matt Andrews at the Financial Times. All open source code released by the FT is licenced under the MIT licence. We welcome comments, feedback and suggestions. Please feel free to raise an issue or pull request.
+The lead developer of shell promise is Matt Andrews at the Financial Times. All open source code released by the FT is licenced under the MIT licence. We welcome comments, feedback and suggestions. Please feel free to raise an issue or pull request.
