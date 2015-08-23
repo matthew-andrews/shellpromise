@@ -14,7 +14,7 @@ module.exports = function(processToRun, options) {
 	}
 	return new Promise(function(resolve, reject) {
 		var command = processToRun.shift();
-		var local = spawn(command, processToRun, { env: options.env || {} });
+		var local = spawn(command, processToRun, { env: options.env || {}, cwd: options.cwd || process.cwd() });
 		var output = "";
 
 		function toStdErr(data) {

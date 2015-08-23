@@ -1,6 +1,7 @@
 'use strict';
 
 var shellpromise = require('../shellpromise');
+var join = require('path').join;
 var expect = require('chai').expect;
 
 describe('shellpromise', function() {
@@ -36,9 +37,16 @@ describe('shellpromise', function() {
 	});
 
 	it('should pass environment variables through', function() {
-		return shellpromise('./test/fixtures/env.sh', { env: { TEST: 'matt' }})
+		return shellpromise('./test/fixtures/env.sh', { env: { TEST: 'matt' } })
 			.then(function(output) {
 				expect(output).to.eql('matt\n');
+			});
+	});
+
+	it('should pass the cwd thorugh ', function() {
+		return shellpromise('ls', { cwd: join(process.cwd(), 'test', 'fixtures') })
+			.then(function(output) {
+				expect(output).to.eql('env.sh\n');
 			});
 	});
 
