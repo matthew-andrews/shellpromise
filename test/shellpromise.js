@@ -36,6 +36,14 @@ describe('shellpromise', function() {
 			});
 	});
 
+	it('should default to passing the current environment through', function() {
+		process.env.TEST = 'ok';
+		return shellpromise('./test/fixtures/env.sh')
+			.then(function(output) {
+				expect(output).to.eql('ok\n');
+			});
+	});
+
 	it('should pass environment variables through', function() {
 		return shellpromise('./test/fixtures/env.sh', { env: { TEST: 'matt' } })
 			.then(function(output) {

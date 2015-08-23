@@ -27,6 +27,11 @@ shellpromise("echo 'hello world'", { verbose: true });
 // shellpromise: echo output: hi
 ```
 
+## Options
+
+- `cwd` to change the current working directory that the command will run on (defaults to `process.cwd()`)
+- `env` to set environment variables (defaults to `process.env`)
+- `verbose` to see more output
 
 ## Credits and collaboration
 
