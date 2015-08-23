@@ -1,4 +1,4 @@
-# shell promise
+# shell promise [![Build Status](https://travis-ci.org/matthew-andrews/shellpromise.svg?branch=master)](https://travis-ci.org/matthew-andrews/shellpromise)
 
 Executes some shell, returns a promise.
 
