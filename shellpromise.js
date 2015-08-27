@@ -14,13 +14,13 @@ module.exports = function(processToRun, options) {
 		function toStdErr(data) {
 			output += data;
 			if (options.verbose) {
-				console.warn("shellpromise: " + command + " error: " + data.toString());
+				console.warn("shellpromise: error: " + data.toString());
 			}
 		}
 		function toStdOut(data) {
 			output += data;
 			if (options.verbose) {
-				console.log("shellpromise: " + command + " output: " + data.toString());
+				console.log("shellpromise: output: " + data.toString());
 			}
 		}
 
