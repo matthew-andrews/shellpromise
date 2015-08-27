@@ -18,6 +18,7 @@ module.exports = function(processToRun, options) {
 		var output = "";
 
 		function toStdErr(data) {
+			output += data;
 			if (options.verbose) {
 				console.warn("shellpromise: " + command + " error: " + data.toString());
 			}
@@ -39,7 +40,7 @@ module.exports = function(processToRun, options) {
 				if (options.verbose) {
 					toStdErr(processToRun.join(' ') + ' exited with exit code ' + code);
 				}
-				reject();
+				reject(output);
 			}
 		});
 	});

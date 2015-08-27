@@ -58,4 +58,13 @@ describe('shellpromise', function() {
 			});
 	});
 
+	it('should return stderr when call fails', function() {
+		return shellpromise('which ehco')
+			.then(function(output) {
+				throw new Error("command incorrectly executed successfully");
+			}, function(output) {
+				expect(output).to.not.be.undefined;
+			});
+	});
+
 });
