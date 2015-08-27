@@ -67,4 +67,11 @@ describe('shellpromise', function() {
 			});
 	});
 
+	it('should support pipe', function() {
+		return shellpromise('printf "b" | grep b')
+			.then(function(output) {
+				expect(output.trim()).to.eql('b');
+			});
+	});
+
 });
