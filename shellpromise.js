@@ -4,17 +4,11 @@ var spawn = require('child_process').spawn;
 
 module.exports = function(processToRun, options) {
 	options = options || {};
-	processToRun = processToRun.match(/'[^"]*'|"[^"]*"|[^\s"]+/g);
-	processToRun = processToRun.map(function(part) {
-			return part.replace(/^['"](.*)['"]$/, '$1');
-		});
-
 	if (options.verbose) {
-		console.log("shellpromise: about to spawn " + processToRun.join(' '));
+		console.log("shellpromise: about to spawn " + processToRun);
 	}
 	return new Promise(function(resolve, reject) {
-		var command = processToRun.shift();
-		var local = spawn(command, processToRun, { env: options.env || process.env, cwd: options.cwd || process.cwd() });
+		var local = spawn('sh', ['-c', processToRun], { env: options.env || process.env, cwd: options.cwd || process.cwd() });
 		var output = "";
 
 		function toStdErr(data) {
@@ -40,7 +34,7 @@ module.exports = function(processToRun, options) {
 				if (options.verbose) {
 					toStdErr(processToRun.join(' ') + ' exited with exit code ' + code);
 				}
-				reject(output);
+				reject(new Error(output));
 			}
 		});
 	});
