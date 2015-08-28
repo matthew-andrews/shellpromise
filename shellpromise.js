@@ -32,7 +32,7 @@ module.exports = function(processToRun, options) {
 				resolve(output);
 			} else {
 				if (options.verbose) {
-					toStdErr(processToRun.join(' ') + ' exited with exit code ' + code);
+					toStdErr(processToRun + ' exited with exit code ' + code);
 				}
 				reject(new Error(output));
 			}
