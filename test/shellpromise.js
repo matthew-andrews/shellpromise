@@ -59,11 +59,21 @@ describe('shellpromise', function() {
 	});
 
 	it('should return stderr when call fails', function() {
-		return shellpromise('which ehco')
+		return shellpromise('ehco hi')
 			.then(function(output) {
 				throw new Error("command incorrectly executed successfully");
 			}, function(output) {
 				expect(output).to.not.be.undefined;
+				expect(output.toString()).to.contain('command not found');
+			});
+	});
+
+	it('should should support redirecting stderr to /dev/null', function() {
+		return shellpromise('ehco hi 2>/dev/null')
+			.then(function(output) {
+				throw new Error("command incorrectly executed successfully");
+			}, function(output) {
+				expect(output.toString()).to.not.contain('command not found');
 			});
 	});
 

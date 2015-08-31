@@ -25,6 +25,9 @@ shellpromise("echo 'hello world'")
 shellpromise("echo 'hello world'", { verbose: true });
 // shellpromise: about to spawn echo hi
 // shellpromise: echo output: hi
+
+// To stop stderr from getting into the output redirect with `2>/dev/null`
+shellpromise("ehco 'hello world' 2>/dev/null");
 ```
 
 ## Options
