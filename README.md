@@ -40,4 +40,4 @@ shellpromise("ehco 'hello world' 2>/dev/null");
 
 ## Credits and collaboration
 
-The lead developer of shell promise is Matt Andrews at the Financial Times. All open source code released by the FT is licenced under the MIT licence. We welcome comments, feedback and suggestions. Please feel free to raise an issue or pull request.
+The lead developer of shell promise is [Matt Andrews](https://twitter.com/andrewsmatt) at the Financial Times. All open source code released by the FT is licenced under the MIT licence. We welcome comments, feedback and suggestions. Please feel free to raise an issue or pull request.
