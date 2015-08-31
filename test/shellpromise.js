@@ -64,7 +64,7 @@ describe('shellpromise', function() {
 				throw new Error("command incorrectly executed successfully");
 			}, function(output) {
 				expect(output).to.not.be.undefined;
-				expect(output.toString()).to.contain('command not found');
+				expect(output.toString()).to.contain('not found');
 			});
 	});
 
@@ -73,7 +73,7 @@ describe('shellpromise', function() {
 			.then(function(output) {
 				throw new Error("command incorrectly executed successfully");
 			}, function(output) {
-				expect(output.toString()).to.not.contain('command not found');
+				expect(output.toString()).to.not.contain('not found');
 			});
 	});
 
