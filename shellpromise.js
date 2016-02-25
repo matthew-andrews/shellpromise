@@ -2,7 +2,7 @@
 
 var spawn = require('child_process').spawn;
 
-module.exports = function(processToRun, options) {
+function shellpromise (processToRun, options) {
 	options = options || {};
 	if (options.verbose) {
 		console.log("shellpromise: about to spawn " + processToRun);
@@ -39,3 +39,6 @@ module.exports = function(processToRun, options) {
 		});
 	});
 };
+
+module.exports = shellpromise;
+module.exports.shellpromise = shellpromise;
